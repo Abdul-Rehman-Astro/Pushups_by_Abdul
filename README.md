@@ -1,15 +1,46 @@
 # PushUpCounter
-In the realm of fitness, maintaining proper form during exercises is paramount to achieving optimal results and preventing injuries. To address this need, we present a simple yet powerful program leveraging Mediapipe and OpenCV technologies to count the number of push-ups performed accurately. The primary goal of this program is to ensure that individuals maintain correct form while executing push-ups, thereby maximizing their effectiveness and minimizing the risk of strain or injury.
+# StayFit with Abdul - Push-Up Counter
 
+StayFit with Abdul is a cutting-edge Python program designed to revolutionize the way individuals track their push-up workouts. Leveraging the power of Mediapipe and OpenCV technologies, this program offers a simple yet effective solution for counting push-ups accurately while ensuring proper form.
 
-Central to this program is the utilization of Mediapipe's Pose module, a sophisticated tool capable of detecting key body landmarks in real-time. By leveraging this module, our program analyzes the user's body posture during each push-up, identifying crucial joints such as shoulders, elbows, and hips. This comprehensive analysis enables us to provide accurate feedback on form, ensuring that users maintain proper alignment and technique throughout their workout.
+## Features
 
+- **Push-Up Counting:** Accurately counts the number of push-ups performed by the user in real-time.
+- **Form Feedback:** Provides instant feedback on form and posture, helping users maintain proper alignment and technique.
+- **Visual Representation:** Utilizes Mediapipe's Pose module to detect key body landmarks, providing users with a visual representation of their push-up performance.
+- **Customizable:** The BasicPoseModule can be easily adapted and integrated into personal projects, with adjustable variables and parameters to suit individual preferences.
 
-The integration of OpenCV further enhances the functionality of our program, allowing for seamless capture and processing of live video feeds from the user's device camera. This real-time video analysis not only facilitates the detection of body landmarks but also enables us to track the user's movements as they perform push-ups. By correlating these movements with established criteria for proper push-up form, our program can reliably count the number of push-ups completed by the user, providing instant feedback on their progress.
+## How It Works
 
+1. **Pose Detection:** The program utilizes Mediapipe's Pose module to detect key body landmarks, including shoulders, elbows, and hips, in real-time.
+2. **Push-Up Tracking:** By analyzing the user's body movements, the program accurately counts the number of push-ups completed, providing instant feedback on progress.
+3. **Form Feedback:** Visual cues and indicators guide users to maintain proper form and alignment throughout their push-up workout, ensuring maximum effectiveness and safety.
 
-One of the key advantages of our program is its adaptability and versatility. The BasicPoseModule provided can be easily integrated into personal projects, with the flexibility to adjust variables and parameters as needed. Whether used as a standalone tool for push-up tracking or incorporated into larger fitness applications, our program offers a user-friendly and customizable solution for promoting proper form and maximizing workout effectiveness.
+## Usage
 
+To use StayFit with Abdul in your projects, simply integrate the BasicPoseModule and adjust variables as necessary. Refer to the included documentation for detailed instructions on customization and implementation.
 
-In the image below, we illustrate the different joints in the body that are detected by the Pose module, providing users with a visual reference for understanding the underlying technology. With this program, users can embark on their fitness journey with confidence, knowing that they have a reliable companion to guide them towards achieving their goals safely and effectively.
+```python
+from BasicPoseModule import PoseModule
+
+# Initialize Pose Module
+pose = PoseModule()
+
+# Main loop
+while True:
+    # Get frame from camera
+    frame = capture_frame()
+    
+    # Perform pose detection
+    landmarks = pose.detect_landmarks(frame)
+    
+    # Count push-ups and provide feedback
+    push_up_count = pose.count_push_ups(landmarks)
+    pose.display_feedback(frame, push_up_count)
+```
+
+![](https://github.com/Abdul-Rehman-Astro/Pushups_by_Abdul/blob/main/Images/Pushup%20counter.png)
+![](https://github.com/Abdul-Rehman-Astro/Pushups_by_Abdul/blob/main/Images/Pushup%20counter%202.png)
+
 ![alt text](https://google.github.io/mediapipe/images/mobile/pose_tracking_full_body_landmarks.png)
+
